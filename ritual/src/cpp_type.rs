@@ -47,6 +47,17 @@ pub enum CppSpecificNumericTypeKind {
     FloatingPoint,
 }
 
+/// Information about a C++ typedef and using
+/// TODO:
+/// I found that there are different opinions
+/// on using and typedef in cpp, so I decided
+/// to implement both.
+#[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
+pub enum CppTypeAlias {
+    Typedef,
+    Using,
+}
+
 /// Information about a C++ function pointer type
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
 pub struct CppFunctionPointerType {
@@ -502,4 +513,9 @@ impl Hash for CppSpecificNumericType {
         self.bits.hash(state);
         self.kind.hash(state);
     }
+}
+
+/// ??????
+impl CppTypeAlias {
+    
 }
